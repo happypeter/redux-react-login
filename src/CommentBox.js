@@ -7,6 +7,13 @@ class CommentBox extends Component {
       "第二条评论"
     ]
   }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    let newComment = this.commentInput.value
+    this.setState({
+      comments: [...this.state.comments, newComment]
+    })
+  }
   render() {
     return (
       <div className="comment-box">
@@ -15,8 +22,8 @@ class CommentBox extends Component {
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }
-        <form className="comment-form">
-          <input type="text" className="input" />
+        <form onSubmit={this.handleSubmit} className="comment-form">
+          <input type="text" className="input" ref={value => this.commentInput = value} />
           <button type="submit" className="submit-btn">提交</button>
         </form>
         <div className="underline"></div>
