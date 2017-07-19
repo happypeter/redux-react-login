@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
+import store from './store'
 
 class CommentBox extends Component {
-  state = {
-    comments: [
-      "第一条评论",
-      "第二条评论"
-    ]
-  }
-
   handleSubmit = (e) => {
     e.preventDefault()
     let newComment = this.commentInput.value
@@ -18,10 +12,12 @@ class CommentBox extends Component {
   }
 
   render() {
+    console.log(store.getState())
+    let comments = store.getState()
     return (
       <div className="comment-box">
         {
-          this.state.comments.map(item => (
+          comments.map(item => (
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }
