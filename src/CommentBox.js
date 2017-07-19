@@ -13,6 +13,7 @@ class CommentBox extends Component {
     this.setState({
       comments: [...this.state.comments, newComment]
     })
+    this.commentForm.reset()
   }
   render() {
     return (
@@ -22,7 +23,8 @@ class CommentBox extends Component {
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }
-        <form onSubmit={this.handleSubmit} className="comment-form">
+        <form ref={value => this.commentForm = value}
+          onSubmit={this.handleSubmit} className="comment-form">
           <input type="text" className="input" ref={value => this.commentInput = value} />
           <button type="submit" className="submit-btn">提交</button>
         </form>
