@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 
 class CommentBox extends Component {
+  state = {
+    comments: [
+      "第一条评论",
+      "第二条评论"
+    ]
+  }
 
   handleSubmit = (e) => {
-    let newComment = this.commentInput.value
-    this.props.addComment(newComment)
     e.preventDefault()
+    let newComment = this.commentInput.value
+    this.setState({
+      comments: [...this.state.comments, newComment]
+    })
     this.commentForm.reset()
   }
 
@@ -13,7 +21,7 @@ class CommentBox extends Component {
     return (
       <div className="comment-box">
         {
-          this.props.comments.map(item => (
+          this.state.comments.map(item => (
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }

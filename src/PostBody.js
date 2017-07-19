@@ -5,7 +5,7 @@ class PostBody extends Component {
     return (
       <div className="post-body">
         <div className="comment-num num">
-          {this.props.comments.length}
+          0
         </div>
       </div>
     );
