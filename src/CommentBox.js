@@ -11,7 +11,7 @@ class CommentBox extends Component {
     e.preventDefault()
     let newComment = this.commentInput.value
     console.log(store.getState())
-    store.dispatch({type: 'ADD_COMMENT', comment: newComment})
+    store.dispatch({type: 'ADD_COMMENT', comment: newComment}) //action
     console.log(store.getState())
     this.setState({
       comments: store.getState()
@@ -21,7 +21,6 @@ class CommentBox extends Component {
 
   render() {
     console.log(store.getState())
-    let comments = store.getState()
     return (
       <div className="comment-box">
         {
