@@ -2,12 +2,20 @@ import React, { Component } from 'react'
 import store from './store'
 
 class CommentBox extends Component {
+
+  state = {
+    comments: store.getState()
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
     let newComment = this.commentInput.value
     console.log(store.getState())
     store.dispatch({type: 'ADD_COMMENT', comment: newComment})
     console.log(store.getState())
+    this.setState({
+      comments: store.getState()
+    })
     this.commentForm.reset()
   }
 
@@ -17,7 +25,7 @@ class CommentBox extends Component {
     return (
       <div className="comment-box">
         {
-          comments.map(item => (
+          this.state.comments.map(item => (
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }

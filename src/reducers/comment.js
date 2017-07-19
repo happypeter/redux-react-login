@@ -11,5 +11,4 @@ export default function commentReducer(state = comments, action) {
     default:
       return state;
   }
-
 }
