@@ -1,21 +1,11 @@
 import React, { Component } from 'react'
-import store from './store'
 
 class CommentBox extends Component {
-
-  state = {
-    comments: store.getState()
-  }
 
   handleSubmit = (e) => {
     e.preventDefault()
     let newComment = this.commentInput.value
-    console.log(store.getState())
-    store.dispatch({type: 'ADD_COMMENT', comment: newComment}) //action
-    console.log(store.getState())
-    this.setState({
-      comments: store.getState()
-    })
+    store.dispatch({type: 'ADD_COMMENT', comment: newComment})
     this.commentForm.reset()
   }
 
@@ -39,4 +29,8 @@ class CommentBox extends Component {
   }
 }
 
-export default CommentBox
+const mapStateToProps = (state) => ({
+  comments: state
+})
+
+export default connect(mapStateToProps)(CommentBox)
