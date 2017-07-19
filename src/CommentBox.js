@@ -5,9 +5,9 @@ class CommentBox extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let newComment = this.commentInput.value
-    this.setState({
-      comments: [...this.state.comments, newComment]
-    })
+    console.log(store.getState())
+    store.dispatch({type: 'ADD_COMMENT', comment: newComment})
+    console.log(store.getState())
     this.commentForm.reset()
   }
 
