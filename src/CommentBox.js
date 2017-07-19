@@ -12,9 +12,14 @@ class CommentBox extends Component {
       <div className="comment-box">
         {
           this.state.comments.map(item => (
-            <li key={Math.random()}>{item}</li>
+            <li className="comment" key={Math.random()}>{item}</li>
           ))
         }
+        <form className="comment-form">
+          <input type="text" className="input" />
+          <button type="submit" className="submit-btn">提交</button>
+        </form>
+        <div className="underline"></div>
       </div>
     );
   }
