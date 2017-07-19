@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import store from './store'
+import { connect } from 'react-redux'
 
 class CommentBox extends Component {
 
@@ -11,11 +12,10 @@ class CommentBox extends Component {
   }
 
   render() {
-    console.log(store.getState())
     return (
       <div className="comment-box">
         {
-          this.state.comments.map(item => (
+          this.props.comments.map(item => (
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }
