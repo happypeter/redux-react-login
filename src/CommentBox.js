@@ -16,7 +16,6 @@ class CommentBox extends Component {
     let myComments = comments.filter(value => value.postId ===  postId ).map(item => {
       return item.content;
     })
-    console.log('myComments', myComments)
 
     return (
       <div className="comment-box">

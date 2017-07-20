@@ -9,13 +9,15 @@ class PostBody extends Component {
   }
 
   render() {
+    let { postId, posts } = this.props
+    let currentPost = posts.filter(value => value.postId === postId )[0]
     return (
       <div className="post-body">
         <div className="title">
-          {this.props.postId}
+          {currentPost.title}
         </div>
         <div onClick={this.like} className="likes-num num">
-          {this.props.likes} 赞
+          {currentPost.likes} 赞
         </div>
         <div className="comment-num num">
           {this.props.comments.length} 评论
@@ -27,7 +29,7 @@ class PostBody extends Component {
 
 const mapStateToProps = (state) => ({
   comments: state.comments,
-  likes: state.likes
+  posts: state.posts
 })
 
 export default connect(mapStateToProps)(PostBody)
