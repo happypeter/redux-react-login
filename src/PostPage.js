@@ -5,13 +5,15 @@ import CommentBox from './CommentBox'
 class PostPage extends Component {
 
   render() {
+    console.log(this.props.match.params.id)
+    let { id } = this.props.match.params
     return (
       <div>
         <div className="top  clearfix">
-          <PostBody  />
+          <PostBody postId={id}/>
         </div>
         <div className="bottom clearfix">
-          <CommentBox />
+          <CommentBox postId={id}/>
         </div>
       </div>
     )

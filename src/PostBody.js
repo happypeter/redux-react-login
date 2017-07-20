@@ -11,6 +11,9 @@ class PostBody extends Component {
   render() {
     return (
       <div className="post-body">
+        <div className="title">
+          {this.props.postId}
+        </div>
         <div onClick={this.like} className="likes-num num">
           {this.props.likes} 赞
         </div>

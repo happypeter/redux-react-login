@@ -19,7 +19,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/post/1" component={PostPage} />
+            <Route path="/post/:id" component={PostPage} />
           </Switch>
         </Router>
       </Provider>
