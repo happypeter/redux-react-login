@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import store from './store'
 
 class PostBody extends Component {
+
+  like() {
+    store.dispatch({ type: 'INCREMENT_LIKE' })
+  }
+
   render() {
     return (
       <div className="post-body">
-        <div className="likes-num num">
+        <div onClick={this.like} className="likes-num num">
           {this.props.likes} 赞
         </div>
         <div className="comment-num num">
