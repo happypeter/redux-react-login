@@ -7,6 +7,7 @@ class CommentBox extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let newComment = this.commentInput.value
+    console.log(store.getState())
     store.dispatch({type: 'ADD_COMMENT', comment: newComment})
     this.commentForm.reset()
   }
@@ -15,7 +16,8 @@ class CommentBox extends Component {
     return (
       <div className="comment-box">
         {
-          this.props.comments.map(item => (
+          // this.props.comments.map(item => (
+          ['1', '2'].map(item => (
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }
