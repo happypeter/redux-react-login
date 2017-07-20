@@ -5,7 +5,6 @@ import CommentBox from './CommentBox'
 class PostPage extends Component {
 
   render() {
-    console.log(this.props.match.params.id)
     let { id } = this.props.match.params
     return (
       <div>

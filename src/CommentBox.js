@@ -7,16 +7,22 @@ class CommentBox extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let newComment = this.commentInput.value
-    console.log(store.getState())
     store.dispatch({type: 'ADD_COMMENT', comment: newComment})
     this.commentForm.reset()
   }
 
   render() {
+
+    let { postId, comments } = this.props
+    let myComments = comments.filter(value => value.postId ===  postId ).map(item => {
+      return item.content;
+    })
+    console.log('myComments', myComments)
+
     return (
       <div className="comment-box">
         {
-          this.props.comments.map(item => (
+          myComments.map(item => (
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }
