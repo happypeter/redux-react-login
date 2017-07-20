@@ -16,8 +16,7 @@ class CommentBox extends Component {
     return (
       <div className="comment-box">
         {
-          // this.props.comments.map(item => (
-          ['1', '2'].map(item => (
+          this.props.comments.map(item => (
             <li className="comment" key={Math.random()}>{item}</li>
           ))
         }
@@ -33,7 +32,7 @@ class CommentBox extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  comments: state
+  comments: state.comments
 })
 
 export default connect(mapStateToProps)(CommentBox)
