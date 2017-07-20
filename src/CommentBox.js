@@ -7,12 +7,11 @@ class CommentBox extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let newComment = this.commentInput.value
-    store.dispatch({type: 'ADD_COMMENT', comment: newComment})
+    store.dispatch({type: 'ADD_COMMENT', comment: newComment, postId: this.props.postId})
     this.commentForm.reset()
   }
 
   render() {
-
     let { postId, comments } = this.props
     let myComments = comments.filter(value => value.postId ===  postId ).map(item => {
       return item.content;
