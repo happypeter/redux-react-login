@@ -4,8 +4,8 @@ import store from './store'
 
 class PostBody extends Component {
 
-  like() {
-    store.dispatch({ type: 'INCREMENT_LIKE' })
+  like = () => {
+    store.dispatch({ type: 'INCREMENT_LIKE', postId: this.props.postId })
   }
 
   render() {

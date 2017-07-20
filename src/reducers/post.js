@@ -15,8 +15,9 @@ let posts = [
 export default function postReducer(state = posts, action) {
   switch (action.type) {
     case 'INCREMENT_LIKE':
-      console.log('state', state)
-      return state + 1
+      let otherPosts = state.filter(value => value.postId !== action.id)
+      let currentPost = state.filter(value => value.postId !== action.id)[0]
+      return [otherPosts, { ...currentPost, likes: currentPost.likes + 1 }]
     default:
       return state;
   }
