@@ -22,7 +22,8 @@ class Header extends Component {
 
     return(
       <header>
-      { this.props.isAuthenticated ? userInfo: authStr   }
+        <Link to="/" >首页</Link>
+        { this.props.isAuthenticated ? userInfo: authStr   }
       </header>
     )
   }
