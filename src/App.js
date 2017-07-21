@@ -8,8 +8,13 @@ import PostPage from './PostPage'
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Link
 } from 'react-router-dom'
+
+const Header = () => (
+  <Link to="/" className="back-home">首页</Link>
+)
 
 class App extends Component {
 
@@ -17,10 +22,13 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/post/:id" component={PostPage} />
-          </Switch>
+          <div>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/post/:id" component={PostPage} />
+            </Switch>
+          </div>
         </Router>
       </Provider>
 

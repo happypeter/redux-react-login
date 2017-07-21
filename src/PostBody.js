@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store from './store'
+import {
+  Link
+} from 'react-router-dom'
 
 class PostBody extends Component {
 
@@ -13,9 +16,9 @@ class PostBody extends Component {
     let currentPost = posts.filter(value => value.postId === postId )[0]
     return (
       <div className="post-body">
-        <div className="title">
+        <Link to={`/post/${postId}`} className="title">
           {currentPost.title}
-        </div>
+        </Link>
         <div onClick={this.like} className="likes-num num">
           {currentPost.likes} 赞
         </div>
