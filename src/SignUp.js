@@ -17,6 +17,7 @@ class SignUp extends Component {
       console.log(res)
       if(res.data.username) {
         store.dispatch({ type: 'AUTH_USER', username: res.data.username })
+        localStorage.setItem('userId', res.data.userId)
         this.props.history.push('/')
       }
     })

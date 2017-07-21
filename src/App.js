@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import Header from './Header'
+import axios from 'axios'
 
 import {
   BrowserRouter as Router,
@@ -12,6 +13,16 @@ import Main from './Main'
 
 
 class App extends Component {
+  componentDidMount() {
+    let userId = localStorage.getItem('userId')
+    console.log('userId', userId)
+    if(userId) {
+      axios.get(`http://localhost:3008/user/${userId}`).then(res => {
+        console.log(res.data)
+        store.dispatch({ type: 'AUTH_USER', username: res.data.user.username })
+      })
+    }
+  }
 
   render() {
     return (
