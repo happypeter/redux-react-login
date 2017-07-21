@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import './App.css'
-import SignupPage from './SignupPage'
 import HomePage from './HomePage'
-
+import SignUp from './SignUp'
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Link
+  Switch
 } from 'react-router-dom'
 
 
@@ -16,12 +14,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/signup" component={SignupPage} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/signup" component={SignUp} />
+        </Switch>
       </Router>
     )
   }
