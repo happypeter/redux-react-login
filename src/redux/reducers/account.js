@@ -5,8 +5,8 @@ let account = {
 
 export default function accountReducer(state = account, action) {
   switch (action.type) {
-    case 'XXX':
-      return state
+    case 'AUTH_USER':
+      return { isAuthenticated: true, currentUser: action.user.username}
     default:
       return state;
   }

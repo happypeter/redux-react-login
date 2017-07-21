@@ -16,7 +16,7 @@ class Header extends Component {
 
     let userInfo = (
       <div>
-         Peter|退出
+         {this.props.currentUser}|退出
       </div>
     )
 
@@ -29,7 +29,8 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.account.isAuthenticated
+  isAuthenticated: state.account.isAuthenticated,
+  currentUser: state.account.currentUser
 })
 
 export default connect(mapStateToProps)(Header)
