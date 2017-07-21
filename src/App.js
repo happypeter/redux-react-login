@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import HomePage from './HomePage'
 import SignUp from './SignUp'
+import Header from './Header'
 import {
   BrowserRouter as Router,
   Route,
@@ -14,10 +15,13 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/signup" component={SignUp} />
-        </Switch>
+        <div>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/signup" component={SignUp} />
+          </Switch>
+        </div>
       </Router>
     )
   }

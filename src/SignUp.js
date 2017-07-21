@@ -12,7 +12,7 @@ class SignUp extends Component {
     let username = this.usernameInput.value
     let password = this.passwordInput.value
     let data = {username, password}
-    axios.post('http://localhost:5000/signup', data).then(res => {
+    axios.post('http://192.168.0.138:5000/signup', data).then(res => {
       console.log(res)
     })
   }

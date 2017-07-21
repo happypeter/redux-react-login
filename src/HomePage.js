@@ -8,7 +8,7 @@ class HomePage extends Component {
   render(){
     return(
       <div>
-        <Link to="/signup">注册</Link>
+        首页
       </div>
     )
   }
