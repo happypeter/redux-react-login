@@ -13,10 +13,11 @@ class SignUp extends Component {
     let username = this.usernameInput.value
     let password = this.passwordInput.value
     let data = {username, password}
-    axios.post('http://192.168.0.138:5000/signup', data).then(res => {
+    axios.post('http://localhost:3008/user/signup', data).then(res => {
       console.log(res)
-      if(res.data.user) {
-        store.dispatch({ type: 'AUTH_USER', user: res.data.user })
+      if(res.data.username) {
+        store.dispatch({ type: 'AUTH_USER', username: res.data.username })
+        this.props.history.push('/')
       }
     })
   }
