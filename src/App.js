@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
-import store from './store'
-import { Provider } from 'react-redux'
+import SignupPage from './SignupPage'
 import HomePage from './HomePage'
-import PostPage from './PostPage'
 
 import {
   BrowserRouter as Router,
@@ -12,28 +10,21 @@ import {
   Link
 } from 'react-router-dom'
 
-const Header = () => (
-  <Link to="/" className="back-home">首页</Link>
-)
 
 class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <Router>
-          <div>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/post/:id" component={PostPage} />
-            </Switch>
-          </div>
-        </Router>
-      </Provider>
-
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/signup" component={SignupPage} />
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }
 
-export default App;
+export default App
