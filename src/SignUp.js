@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class SignUp extends Component {
   style = {
@@ -10,7 +11,10 @@ class SignUp extends Component {
     e.preventDefault()
     let username = this.usernameInput.value
     let password = this.passwordInput.value
-    console.log({username, password})
+    let data = {username, password}
+    axios.post('http://localhost:5000/signup', data).then(res => {
+      console.log(res)
+    })
   }
 
   render() {
