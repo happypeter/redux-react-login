@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   Link
 } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class Header extends Component {
 
@@ -18,13 +19,17 @@ class Header extends Component {
          Peter|退出
       </div>
     )
-    let isAuthenticated = false
+
     return(
       <header>
-      { isAuthenticated ? userInfo: authStr   }
+      { this.props.isAuthenticated ? userInfo: authStr   }
       </header>
     )
   }
 }
 
-export default Header
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.account.isAuthenticated
+})
+
+export default connect(mapStateToProps)(Header)
